@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+<Node Id="IModel" Label="AppDbContext" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" PropertyAccessMode="PropertyAccessMode.Default" ProductVersion="8.0.8" Annotations="BaseTypeDiscoveryConvention:DerivedTypes: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.IConventionEntityType]]
+Relational:MaxIdentifierLength: 128
+RelationshipDiscoveryConvention:InverseNavigationCandidates: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.SortedSet`1[System.Type]]
+SqlServer:ValueGenerationStrategy: IdentityColumn" Category="Model" Group="Expanded" />
+<Node Id = "City" Label="City" Name="City" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Cities
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Event" Label="Event" Name="Event" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Events
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "City.PostalCode" Label="PostalCode (int)" Name="PostalCode" Category="Property Primary" Type="int" MaxLength="(10)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 10" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "City.Events" Label="Events (*)" Name="Events" Category="Navigation Collection" Type="ICollection&lt;Event&gt;"  Field="" Dependent="Event" Principal="" Inverse="City" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "City.CityName" Label="CityName (string)" Name="CityName" Category="Property Required" Type="string" MaxLength="(255)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 255" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="True" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "EventCategory" Label="EventCategory" Name="EventCategory" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: EventCategories
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Event.EventID" Label="EventID (int)" Name="EventID" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Event.City" Label="City (1)" Name="City" Category="Navigation Property" Type="City"  Field="" Dependent="" Principal="City" Inverse="Events" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Event.EventCategoryMappings" Label="EventCategoryMappings (*)" Name="EventCategoryMappings" Category="Navigation Collection" Type="ICollection&lt;EventCategoryMapping&gt;"  Field="" Dependent="EventCategoryMapping" Principal="" Inverse="Event" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Event.Organizer" Label="Organizer (1)" Name="Organizer" Category="Navigation Property" Type="User"  Field="" Dependent="" Principal="User" Inverse="Events" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Event.Registrations" Label="Registrations (*)" Name="Registrations" Category="Navigation Collection" Type="ICollection&lt;Registration&gt;"  Field="" Dependent="Registration" Principal="" Inverse="Event" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Event.UserRoles" Label="UserRoles (*)" Name="UserRoles" Category="Navigation Collection" Type="ICollection&lt;UserRole&gt;"  Field="" Dependent="UserRole" Principal="" Inverse="Event" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Event.CityName" Label="CityName (string)" Name="CityName" Category="Property Foreign" Type="string" MaxLength="(255)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 255" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Event.CreatedAt" Label="CreatedAt (DateTime)" Name="CreatedAt" Category="Property Required" Type="DateTime" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Event.Date" Label="Date (DateTime)" Name="Date" Category="Property Required" Type="DateTime" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Event.Description" Label="Description (string)" Name="Description" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Event.Image" Label="Image (string)" Name="Image" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Event.OrganizerID" Label="OrganizerID (int)" Name="OrganizerID" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Event.Title" Label="Title (string)" Name="Title" Category="Property Required" Type="string" MaxLength="(255)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 255" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "EventCategoryMapping" Label="EventCategoryMapping" Name="EventCategoryMapping" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: EventCategoryMappings
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "EventCategory.CategoryID" Label="CategoryID (int)" Name="CategoryID" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "EventCategory.EventCategoryMappings" Label="EventCategoryMappings (*)" Name="EventCategoryMappings" Category="Navigation Collection" Type="ICollection&lt;EventCategoryMapping&gt;"  Field="" Dependent="EventCategoryMapping" Principal="" Inverse="EventCategory" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "EventCategory.CategoryName" Label="CategoryName (string)" Name="CategoryName" Category="Property Required" Type="string" MaxLength="(255)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 255" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "EventCategory.Description" Label="Description (string)" Name="Description" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "EventCategory.Image" Label="Image (string)" Name="Image" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Registration" Label="Registration" Name="Registration" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Registrations
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "EventCategoryMapping.MappingID" Label="MappingID (int)" Name="MappingID" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "EventCategoryMapping.Event" Label="Event (1)" Name="Event" Category="Navigation Property" Type="Event"  Field="" Dependent="" Principal="Event" Inverse="EventCategoryMappings" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "EventCategoryMapping.EventCategory" Label="EventCategory (1)" Name="EventCategory" Category="Navigation Property" Type="EventCategory"  Field="" Dependent="" Principal="EventCategory" Inverse="EventCategoryMappings" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "EventCategoryMapping.CategoryID" Label="CategoryID (int)" Name="CategoryID" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "EventCategoryMapping.EventID" Label="EventID (int)" Name="EventID" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "User" Label="User" Name="User" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Users
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Registration.RegistrationID" Label="RegistrationID (int)" Name="RegistrationID" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Registration.Event" Label="Event (1)" Name="Event" Category="Navigation Property" Type="Event"  Field="" Dependent="" Principal="Event" Inverse="Registrations" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Registration.User" Label="User (1)" Name="User" Category="Navigation Property" Type="User"  Field="" Dependent="" Principal="User" Inverse="Registrations" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Registration.EventID" Label="EventID (int)" Name="EventID" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Registration.RegistrationDate" Label="RegistrationDate (DateTime)" Name="RegistrationDate" Category="Property Required" Type="DateTime" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Registration.Status" Label="Status (EventStatus?)" Name="Status" Category="Property Optional" Type="EventStatus?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="ProviderClrType: System.String
+ValueConverter:" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Registration.UserID" Label="UserID (int)" Name="UserID" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "UserRole" Label="UserRole" Name="UserRole" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: UserRoles
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "User.UserID" Label="UserID (int)" Name="UserID" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "User.Events" Label="Events (*)" Name="Events" Category="Navigation Collection" Type="ICollection&lt;Event&gt;"  Field="" Dependent="Event" Principal="" Inverse="Organizer" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "User.Registrations" Label="Registrations (*)" Name="Registrations" Category="Navigation Collection" Type="ICollection&lt;Registration&gt;"  Field="" Dependent="Registration" Principal="" Inverse="User" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "User.UserRoles" Label="UserRoles (*)" Name="UserRoles" Category="Navigation Collection" Type="ICollection&lt;UserRole&gt;"  Field="" Dependent="UserRole" Principal="" Inverse="User" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "User.CreatedAt" Label="CreatedAt (DateTime)" Name="CreatedAt" Category="Property Required" Type="DateTime" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "User.Email" Label="Email (string)" Name="Email" Category="Property Required" Type="string" MaxLength="(255)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 255" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "User.FirstName" Label="FirstName (string)" Name="FirstName" Category="Property Required" Type="string" MaxLength="(255)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 255" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "User.LastName" Label="LastName (string)" Name="LastName" Category="Property Required" Type="string" MaxLength="(255)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 255" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "User.Password" Label="Password (string)" Name="Password" Category="Property Required" Type="string" MaxLength="(255)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 255" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "UserRole" Label="UserRole" Name="UserRole" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="" Category="EntityType" Group="Expanded" />
+<Node Id = "UserRole.UserRoleID" Label="UserRoleID (int)" Name="UserRoleID" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "UserRole.Event" Label="Event (1)" Name="Event" Category="Navigation Property" Type="Event"  Field="" Dependent="" Principal="Event" Inverse="UserRoles" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "UserRole.User" Label="User (1)" Name="User" Category="Navigation Property" Type="User"  Field="" Dependent="" Principal="User" Inverse="UserRoles" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "UserRole.EventID" Label="EventID (int?)" Name="EventID" Category="Property Foreign" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "UserRole.Role" Label="Role (string)" Name="Role" Category="Property Required" Type="string" MaxLength="(50)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "UserRole.UserID" Label="UserID (int)" Name="UserID" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+  </Nodes>
+  <Links>
+<Link Source = "IModel" Target="City" Category="Contains" />
+<Link Source = "IModel" Target="Event" Category="Contains" />
+<Link Source = "City" Target="City.Events" Category="Contains" />
+<Link Source = "City" Target="City.PostalCode" Category="Contains" />
+<Link Source = "City" Target="City.CityName" Category="Contains" />
+<Link Source = "IModel" Target="EventCategory" Category="Contains" />
+<Link Source = "Event" Target="Event.City" Category="Contains" />
+<Link Source = "Event" Target="Event.EventCategoryMappings" Category="Contains" />
+<Link Source = "Event" Target="Event.Organizer" Category="Contains" />
+<Link Source = "Event" Target="Event.Registrations" Category="Contains" />
+<Link Source = "Event" Target="Event.UserRoles" Category="Contains" />
+<Link Source = "Event" Target="Event.EventID" Category="Contains" />
+<Link Source="Event" Target="City" From="Event.CityName" To="City.CityName" Name="Event -> City" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="Event" Target="User" From="Event.OrganizerID" To="User.UserID" Name="Event -> User" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "Event" Target="Event.CityName" Category="Contains" />
+<Link Source = "Event" Target="Event.CreatedAt" Category="Contains" />
+<Link Source = "Event" Target="Event.Date" Category="Contains" />
+<Link Source = "Event" Target="Event.Description" Category="Contains" />
+<Link Source = "Event" Target="Event.Image" Category="Contains" />
+<Link Source = "Event" Target="Event.OrganizerID" Category="Contains" />
+<Link Source = "Event" Target="Event.Title" Category="Contains" />
+<Link Source = "IModel" Target="EventCategoryMapping" Category="Contains" />
+<Link Source = "EventCategory" Target="EventCategory.EventCategoryMappings" Category="Contains" />
+<Link Source = "EventCategory" Target="EventCategory.CategoryID" Category="Contains" />
+<Link Source = "EventCategory" Target="EventCategory.CategoryName" Category="Contains" />
+<Link Source = "EventCategory" Target="EventCategory.Description" Category="Contains" />
+<Link Source = "EventCategory" Target="EventCategory.Image" Category="Contains" />
+<Link Source = "IModel" Target="Registration" Category="Contains" />
+<Link Source = "EventCategoryMapping" Target="EventCategoryMapping.Event" Category="Contains" />
+<Link Source = "EventCategoryMapping" Target="EventCategoryMapping.EventCategory" Category="Contains" />
+<Link Source = "EventCategoryMapping" Target="EventCategoryMapping.MappingID" Category="Contains" />
+<Link Source="EventCategoryMapping" Target="EventCategory" From="EventCategoryMapping.CategoryID" To="EventCategory.CategoryID" Name="EventCategoryMapping -> EventCategory" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="EventCategoryMapping" Target="Event" From="EventCategoryMapping.EventID" To="Event.EventID" Name="EventCategoryMapping -> Event" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "EventCategoryMapping" Target="EventCategoryMapping.CategoryID" Category="Contains" />
+<Link Source = "EventCategoryMapping" Target="EventCategoryMapping.EventID" Category="Contains" />
+<Link Source = "IModel" Target="User" Category="Contains" />
+<Link Source = "Registration" Target="Registration.Event" Category="Contains" />
+<Link Source = "Registration" Target="Registration.User" Category="Contains" />
+<Link Source = "Registration" Target="Registration.RegistrationID" Category="Contains" />
+<Link Source="Registration" Target="Event" From="Registration.EventID" To="Event.EventID" Name="Registration -> Event" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="Registration" Target="User" From="Registration.UserID" To="User.UserID" Name="Registration -> User" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "Registration" Target="Registration.EventID" Category="Contains" />
+<Link Source = "Registration" Target="Registration.RegistrationDate" Category="Contains" />
+<Link Source = "Registration" Target="Registration.Status" Category="Contains" />
+<Link Source = "Registration" Target="Registration.UserID" Category="Contains" />
+<Link Source = "IModel" Target="UserRole" Category="Contains" />
+<Link Source = "User" Target="User.Events" Category="Contains" />
+<Link Source = "User" Target="User.Registrations" Category="Contains" />
+<Link Source = "User" Target="User.UserRoles" Category="Contains" />
+<Link Source = "User" Target="User.UserID" Category="Contains" />
+<Link Source = "User" Target="User.CreatedAt" Category="Contains" />
+<Link Source = "User" Target="User.Email" Category="Contains" />
+<Link Source = "User" Target="User.FirstName" Category="Contains" />
+<Link Source = "User" Target="User.LastName" Category="Contains" />
+<Link Source = "User" Target="User.Password" Category="Contains" />
+<Link Source = "IModel" Target="UserRole" Category="Contains" />
+<Link Source = "UserRole" Target="UserRole.Event" Category="Contains" />
+<Link Source = "UserRole" Target="UserRole.User" Category="Contains" />
+<Link Source = "UserRole" Target="UserRole.UserRoleID" Category="Contains" />
+<Link Source="UserRole" Target="Event" From="UserRole.EventID" To="Event.EventID" Name="UserRole -> Event" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="UserRole" Target="User" From="UserRole.UserID" To="User.UserID" Name="UserRole -> User" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "UserRole" Target="UserRole.EventID" Category="Contains" />
+<Link Source = "UserRole" Target="UserRole.Role" Category="Contains" />
+<Link Source = "UserRole" Target="UserRole.UserID" Category="Contains" />
+  </Links>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="EntityType" ValueLabel="True">
+      <Condition Expression="HasCategory('EntityType')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Required" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Required')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Property" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Property')" />
+      <Setter Property="Background" Value="#FF990000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Collection" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Collection')" />
+      <Setter Property="Background" Value="#FFFF3232" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Model" ValueLabel="True">
+      <Condition Expression="HasCategory('Model')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+  <Properties>
+    <Property Id="Name" Group="Model Properties" DataType="System.String" />
+    <Property Id="Field"  Description="Backing field" Group="Model Properties" DataType="System.String" />
+    <Property Id="Type"  Description="CLR data type" Group="Model Properties" DataType="System.String" />
+    <Property Id="To" Description="Source property" Group="Model Properties" DataType="System.String" />
+    <Property Id="From" Description="Target property" Group="Model Properties" DataType="System.String" />
+    <Property Id="Dependent" Description="Dependent entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Inverse" Description="Inverse entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Principal" Description="Principal entity" Group="Model Properties" DataType="System.String" />    
+    <Property Id="Annotations" Description="Annotations" Group="Model Properties" DataType="System.String" />
+    <Property Id="BaseClass"  Description="Base class" Group="Model Properties" DataType="System.String" />
+    <Property Id="ChangeTrackingStrategy" Description="Change tracking strategy" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsUnique" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="IsAbstract" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="ProductVersion" Label="Product Version" Description="EF Core product version" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsRequired" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsPrimaryKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsForeignKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsShadow" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsAlternateKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsConcurrencyToken" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnicode" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="ValueGenerated" Group="Property Flags" DataType="System.String" />
+    <Property Id="BeforeSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="AfterSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="PropertyAccessMode" Group="Property Flags" DataType="System.String" />
+  </Properties>
+</DirectedGraph>
